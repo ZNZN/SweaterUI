@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SweaterUI</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="layoutView_title">Hey I\'m title</string>
+    <string name="layoutView_detail">"I\'m a description. This is a layout convert test. Intent to convert RelativeLayout to ConstraintLayout."</string>
+    <string name="layoutView_btnText">"Button"</string>
 </resources>

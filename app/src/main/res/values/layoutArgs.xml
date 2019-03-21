@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="indexView_paddingStart">30dp</dimen>
+    <dimen name="indexView_paddingEnd">30dp</dimen>
+
+    <dimen name="layoutView_imageWidth">72dp</dimen>
+    <dimen name="layoutView_imageHeight">72dp</dimen>
+    <dimen name="layoutView_imageWidth_l">100dp</dimen>
+    <dimen name="layoutView_imageHeight_l">100dp</dimen>
+    <dimen name="layoutView_imageMarginTop">48dp</dimen>
+    <dimen name="layoutView_textSize_l">20sp</dimen>
+    <dimen name="layoutView_textSize_m">16sp</dimen>
+    <dimen name="layoutView_margin_s">8dp</dimen>
+    <dimen name="layoutView_margin_m">16dp</dimen>
+</resources>
