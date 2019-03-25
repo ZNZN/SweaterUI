@@ -16,7 +16,11 @@ import android.widget.Button;
  */
 public class IndexFragment extends Fragment {
     private final String TAG = "IndexFragment";
-    private String[] mBtnData = {"Layout", "Animation"};
+    private String[] mBtnData = {
+            "Layout",
+            "Animation",
+            "DataBinding"
+    };
 
     /**
      * Recycle View Adapter
@@ -111,11 +115,20 @@ public class IndexFragment extends Fragment {
             @Override
             public void onItemClick(View v, int position) {
                 if (v instanceof Button) {
-                    if ("Layout" == ((Button) v).getText()) {
-                        FragmentTransaction transToLayout = getFragmentManager().beginTransaction();
-                        transToLayout.replace(R.id.fragment_container, new LayoutFragment());
-                        transToLayout.addToBackStack(null);
-                        transToLayout.commit();
+                    switch (((Button) v).getText().toString()) {
+                        case "Layout":
+                            FragmentTransaction transToLayout =
+                                    getFragmentManager().beginTransaction();
+                            transToLayout.replace(R.id.fragment_container, new LayoutFragment());
+                            transToLayout.addToBackStack(null);
+                            transToLayout.commit();
+                            break;
+                        case "DataBinding":
+                            FragmentTransaction transToBinding =
+                                    getFragmentManager().beginTransaction();
+                            transToBinding.replace(R.id.fragment_container, new BindingFragment());
+                            transToBinding.addToBackStack(null);
+                            transToBinding.commit();
                     }
                 }
             }

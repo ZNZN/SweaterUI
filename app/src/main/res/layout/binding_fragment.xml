@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable name="photo" type="com.alan.sweaterui.model.PhotoModel" />
+        <variable name="handle" type="com.alan.sweaterui.BindingFragment" />
+        <variable name="convert" type="com.alan.sweaterui.BindingFragment" />
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/viewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        tools:context=".LayoutFragment">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="@dimen/layoutView_imageWidth"
+            android:layout_height="@dimen/layoutView_imageHeight"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/layoutView_margin_m"
+            android:layout_marginTop="@dimen/layoutView_margin_m"
+
+            android:src="@drawable/ic_launcher_background"
+            android:onClick="@{handle::onImageClick}"
+            />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintStart_toEndOf="@id/image"
+            app:layout_constraintTop_toTopOf="@id/image"
+            android:layout_marginStart="@dimen/layoutView_margin_s"
+            android:layout_marginEnd="@dimen/layoutView_margin_s"
+
+            android:lines="1"
+            android:textSize="@dimen/layoutView_textSize_m"
+            android:textStyle="bold"
+            android:text="@{photo.author}"
+            />
+
+        <TextView
+            android:id="@+id/detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            android:layout_marginEnd="@dimen/layoutView_margin_m"
+            android:layout_marginTop="@dimen/layoutView_margin_s"
+
+            android:lines="2"
+            android:textSize="@dimen/layoutView_margin_m"
+            android:ellipsize="end"
+            android:text="@{convert.toSizeString(photo.width, photo.height)}"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
