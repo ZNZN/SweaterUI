@@ -29,22 +29,17 @@ public class IndexFragment extends Fragment {
          * Recycle View Holder inflate view from R.layout.item_indexitem
          */
         public static class ItemHolder extends RecyclerView.ViewHolder {
-            private View mRoot;
 
             public ItemHolder(View v) {
                 super(v);
-                mRoot = v;
             }
 
             public void setText(String text) {
-                if (mRoot instanceof Button) {
-                    ((Button) mRoot).setText(text);
+                if (itemView instanceof Button) {
+                    ((Button) itemView).setText(text);
                 }
             }
 
-            public View getView() {
-                return mRoot;
-            }
         }
 
         /**
@@ -80,7 +75,7 @@ public class IndexFragment extends Fragment {
                 final OnItemClickListener fListener = mListener;
                 final int fPosition = position;
 
-                holder.getView().setOnClickListener(new View.OnClickListener() {
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         fListener.onItemClick(v, fPosition);
