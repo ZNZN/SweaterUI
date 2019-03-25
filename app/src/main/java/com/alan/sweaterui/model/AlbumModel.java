@@ -5,19 +5,17 @@ import android.databinding.Bindable;
 
 import com.alan.sweaterui.BR;
 
-public class PhotoModel extends BaseObservable {
-    private final int PIEXL_SIZE = 8 * 4;        // rgba, and 8 bit for each
-
+public class AlbumModel extends BaseObservable {
     private String mAuthor;
     private int mWidth;
     private int mHeight;
     private int mSize;
 
-    public PhotoModel(String author, int w, int h) {
+    public AlbumModel(String author, int w, int h, int size) {
         mAuthor = author;
         mWidth = w;
         mHeight = h;
-        mSize = w * h * PIEXL_SIZE;
+        mSize = size;
     }
 
     @Bindable

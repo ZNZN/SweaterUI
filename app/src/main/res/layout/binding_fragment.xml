@@ -7,6 +7,8 @@
 
     <data>
         <variable name="photo" type="com.alan.sweaterui.model.PhotoModel" />
+        <variable name="album" type="com.alan.sweaterui.model.AlbumModel" />
+
         <variable name="handle" type="com.alan.sweaterui.BindingFragment" />
         <variable name="convert" type="com.alan.sweaterui.BindingFragment" />
     </data>
@@ -63,7 +65,53 @@
             android:lines="2"
             android:textSize="@dimen/layoutView_margin_m"
             android:ellipsize="end"
-            android:text="@{convert.toSizeString(photo.width, photo.height)}"
+            android:text="@{convert.toBoundString(photo.width, photo.height) + `\nSize: `+ convert.toSizeString(photo.size)}"
+            />
+
+        <ImageView
+            android:id="@+id/albumCover"
+            android:layout_width="@dimen/layoutView_imageWidth"
+            android:layout_height="@dimen/layoutView_imageHeight"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image"
+            android:layout_marginStart="@dimen/layoutView_margin_m"
+            android:layout_marginTop="@dimen/layoutView_margin_m"
+
+            android:src="@drawable/ic_launcher_background"
+            />
+
+        <TextView
+            android:id="@+id/albumTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintStart_toEndOf="@id/albumCover"
+            app:layout_constraintTop_toTopOf="@id/albumCover"
+            android:layout_marginStart="@dimen/layoutView_margin_s"
+            android:layout_marginEnd="@dimen/layoutView_margin_s"
+
+            android:lines="1"
+            android:textSize="@dimen/layoutView_textSize_m"
+            android:textStyle="bold"
+            android:text="@{album.author}"
+            />
+
+        <TextView
+            android:id="@+id/albumDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintStart_toStartOf="@id/albumTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/albumTitle"
+            android:layout_marginEnd="@dimen/layoutView_margin_m"
+            android:layout_marginTop="@dimen/layoutView_margin_s"
+
+            android:lines="2"
+            android:textSize="@dimen/layoutView_margin_m"
+            android:ellipsize="end"
+            android:text="@{convert.toBoundString(album.width, album.height) + `\nSize: ` + convert.toAlbumSizeString(album.size)}"
             />
 
     </android.support.constraint.ConstraintLayout>
