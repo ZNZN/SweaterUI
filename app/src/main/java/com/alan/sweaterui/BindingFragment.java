@@ -2,13 +2,18 @@ package com.alan.sweaterui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.alan.sweaterui.adapter.AlbumListAdapter;
 import com.alan.sweaterui.databinding.BindingFragmentBinding;
 import com.alan.sweaterui.model.AlbumModel;
 import com.alan.sweaterui.model.PhotoModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BindingFragment extends Fragment {
     private BindingFragmentBinding mBinding;
@@ -20,11 +25,25 @@ public class BindingFragment extends Fragment {
                              Bundle savedInstanceState) {
         mBinding = BindingFragmentBinding.inflate(inflater, container, false);
         mModel = new PhotoModel("Alan", 800, 480);
-        mAlbum = new AlbumModel("ZNZN", 800, 480, 16);
         mBinding.setPhoto(mModel);
-        mBinding.setAlbum(mAlbum);
         mBinding.setHandle(this);
         mBinding.setConvert(this);
+
+        // init RecyclerView
+        List<AlbumModel> data= new ArrayList<>();
+        data.add(new AlbumModel("AAA", 800, 480, 16));
+        data.add(new AlbumModel("BBB", 800, 480, 16));
+        data.add(new AlbumModel("CCC", 800, 480, 16));
+        data.add(new AlbumModel("DDD", 800, 480, 16));
+        data.add(new AlbumModel("EEE", 800, 480, 16));
+        data.add(new AlbumModel("FFF", 800, 480, 16));
+        data.add(new AlbumModel("GGG", 800, 480, 16));
+
+        mBinding.bindRecycler.setHasFixedSize(true);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        mBinding.bindRecycler.setLayoutManager(layoutManager);
+        mBinding.bindRecycler.setAdapter(new AlbumListAdapter(data));
+
         return mBinding.getRoot();
     }
 
